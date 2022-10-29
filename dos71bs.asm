@@ -483,7 +483,7 @@ readfatsec endp
 
 if ?ICINT13
 
-;--- install an int 13h handler that emulates an MBR with a FAT32 partition at sector 0
+;--- install an int 13h handler that emulates an MBR with a FAT32 partition in first PT entry
 
 installi13 proc
 	pusha
@@ -500,6 +500,7 @@ installi13 proc
 	rep movsb
 	popa
 	ret
+
 myint13:
 	push ax
 	pushf
